@@ -1,9 +1,15 @@
 
 ### 时序数据库学习
 
-[入门](https://docs.influxdata.com/influxdb/v1.7/)
-[备份和恢复](https://docs.influxdata.com/influxdb/v1.7/administration/backup_and_restore/)
-[influxQL与SQL](https://docs.influxdata.com/influxdb/v1.7/concepts/crosswalk/)
+- [入门](https://docs.influxdata.com/influxdb/v1.7/)
+- [备份和恢复](https://docs.influxdata.com/influxdb/v1.7/administration/backup_and_restore/)
+```wiki
+重点提示：
+[ -portable ]：以较新的InfluxDB Enterprise兼容格式生成备份文件。强烈建议所有InfluxDB OSS用户使用。
+如果-portable未指定，则使用默认的旧式备份实用程序-除非-database指定，否则仅备份主机元存储。如果不使用-portable，请查看下面的“ 备份（旧版）”以了解预期的行为。
+InfluxDB元存储包含有关系统状态的内部信息，包括用户信息，数据库和分片元数据，连续查询，保留策略和订阅。在节点运行时，可以通过运行以下命令来创建实例的元存储的备份：
+```
+- [influxQL与SQL](https://docs.influxdata.com/influxdb/v1.7/concepts/crosswalk/)
 
 + influxdb解决什么问题？
 ```wiki
