@@ -14,6 +14,7 @@ InfluxDB元存储包含有关系统状态的内部信息，包括用户信息，
 - [influxQL与SQL](https://docs.influxdata.com/influxdb/v1.7/concepts/crosswalk/)
 - [升级](https://docs.influxdata.com/influxdb/v1.7/administration/upgrading/)
 - [问题总结](https://docs.influxdata.com/influxdb/v1.7/troubleshooting/frequently-asked-questions/#how-does-influxdb-handle-duplicate-points)
+- [Influxdb服务器监控](https://docs.influxdata.com/influxdb/v1.7/administration/server_monitoring/)
 
 + influxdb解决什么问题？
 ```wiki
