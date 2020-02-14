@@ -2,6 +2,9 @@
 ### 时序数据库学习
 
 [入门](https://docs.influxdata.com/influxdb/v1.7/)
+[备份和恢复](https://docs.influxdata.com/influxdb/v1.7/administration/backup_and_restore/)
+[influxQL与SQL](https://docs.influxdata.com/influxdb/v1.7/concepts/crosswalk/)
+
 + influxdb解决什么问题？
 ```wiki
 常用的一种使用场景：监控数据统计。
