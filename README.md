@@ -13,6 +13,7 @@ InfluxDB元存储包含有关系统状态的内部信息，包括用户信息，
 ```
 - [influxQL与SQL](https://docs.influxdata.com/influxdb/v1.7/concepts/crosswalk/)
 - [升级](https://docs.influxdata.com/influxdb/v1.7/administration/upgrading/)
+- [问题总结](https://docs.influxdata.com/influxdb/v1.7/troubleshooting/frequently-asked-questions/#how-does-influxdb-handle-duplicate-points)
 
 + influxdb解决什么问题？
 ```wiki
@@ -23,11 +24,9 @@ InfluxDB是一个由InfluxData开发的开源时序型数据。它由Go写成，
 ```wiki
   1.安装
   2.备份恢复
-  3.内存高如何解决？
-  4.数据如何存放？
-  5.怎么查看内容？
+  3.数据如何存放？
+  4.怎么查看内容？
 ```
-#### 怎么查看内容
 
 
 + 如何跟生态产品结合使用？
