@@ -14,9 +14,6 @@ InfluxDB是一个由InfluxData开发的开源时序型数据。它由Go写成，
   5.怎么查看内容？
 ```
 #### 怎么查看内容
-|概念|MySQL|InfluxDB|
-|数据库（同）|	database	|database|
-|表（不同）	|table|	measurement|
-|列（不同）	|column|	tag(带索引的，非必须)、field(不带索引)、timestemp(唯一主键)|
+
 
 + 如何跟生态产品结合使用？
