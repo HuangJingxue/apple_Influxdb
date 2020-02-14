@@ -1,3 +1,4 @@
+```sql
 --查看时间线
 show series from aliyun_instance_info
 --查看tag
@@ -20,3 +21,4 @@ show tag keys
 show field keys
 -- 查看一个measurement中所有的保存策略(可以有多个，一个标识为default)
 show retention policies;
+```
