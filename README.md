@@ -2,6 +2,7 @@
 ### 时序数据库学习
 
 - [入门](https://docs.influxdata.com/influxdb/v1.7/)
+- [下载](https://portal.influxdata.com/downloads/)
 - [安装](https://docs.influxdata.com/influxdb/v1.7/introduction/installation)
 - [备份和恢复](https://docs.influxdata.com/influxdb/v1.7/administration/backup_and_restore/)
 ```wiki
