@@ -16,12 +16,12 @@ InfluxDB元存储包含有关系统状态的内部信息，包括用户信息，
 - [问题总结](https://docs.influxdata.com/influxdb/v1.7/troubleshooting/frequently-asked-questions/#how-does-influxdb-handle-duplicate-points)
 - [Influxdb服务器监控](https://docs.influxdata.com/influxdb/v1.7/administration/server_monitoring/)
 
-+ influxdb解决什么问题？
+#### influxdb解决什么问题？
 ```wiki
 常用的一种使用场景：监控数据统计。
 InfluxDB是一个由InfluxData开发的开源时序型数据。它由Go写成，着力于高性能地查询与存储时序型数据。InfluxDB被广泛应用于存储系统的监控数据，IoT行业的实时数据等场景。
 ```
-+ 我们如何使用influxdb？
+#### 我们如何使用influxdb？
 ```wiki
   1.安装
   2.备份恢复
@@ -29,10 +29,8 @@ InfluxDB是一个由InfluxData开发的开源时序型数据。它由Go写成，
   4.怎么查看内容？
 ```
 
-
-+ 如何跟生态产品结合使用？
-
-+ 故障类
+#### 如何跟生态产品结合使用？
+#### 故障类
 ```wiki
 待补充
 ```
