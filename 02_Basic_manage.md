@@ -111,4 +111,17 @@ SHOW SHARDS  --查看数据存储文件
 DROP SHARD 1
 SHOW SHARD GROUPS
 SHOW SUBSCRIPTIONS
+
+
+#显示用户
+show users
+ 
+#创建用户
+create user "username" with password 'password'
+ 
+#创建管理员权限用户
+create user "username" with password 'password' with all privileges
+ 
+#删除用户
+drop user "username"
 ```
