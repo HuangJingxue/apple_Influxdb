@@ -6,16 +6,22 @@ show series from aliyun_instance_info
 show tag values from  aliyun_instance_info with key=instance_description where db_engine =~ /.*SQLServer.*/
 
 -- 查看所有的数据库
-show databases;
+show databases
+
+-- 创建数据库
+create database dbname
+
+-- 删除数据库
+drop database dbname
 
 -- 使用特定的数据库
-use database_name;
+use database_name
 
 -- 查看所有的measurement
-show measurements;
+show measurements
 
 -- 查询10条数据
-select * from measurement_name limit 10;
+select * from measurement_name limit 10
 
 -- 数据中的时间字段默认显示的是一个纳秒时间戳，改成可读格式
 precision rfc3339; -- 之后再查询，时间就是rfc3339标准格式
@@ -30,5 +36,5 @@ show tag keys
 show field keys
 
 -- 查看一个measurement中所有的保存策略(可以有多个，一个标识为default)
-show retention policies;
+show retention policies
 ```
