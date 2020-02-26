@@ -49,6 +49,15 @@ fieldKey fieldType
 -------- ---------
 v        float
 
+> show series from internal
+key
+---
+internal,eth=a,host=A
+internal,eth=a,host=B
+internal,eth=b,host=A
+internal,eth=b,host=B
+
+
 > select * from internal;
 name: internal
 time                           eth host v
