@@ -138,12 +138,15 @@ test3
 > ]
 > }
 
-#恢复到数据库
-> [root@influx backup]# influxd restore -portable -database mytest -newdb mytest2 -rp autogen -newrp autogen_bak /root/backup/mytest
+#恢复所有数据库
+> [root@influx backup]# influxd restore -portable /root/backup/mytest
+
+#恢复到指定数据库
+> [root@influx backup]# influxd restore -portable -db mytest /root/backup/mytest
 
 #恢复到已存在的数据库
 1.先恢复到临时库mytest1
-> [root@influx backup]# influxd restore -portable -database mytest -newdb mytest1 /root/backup/mytest
+> [root@influx backup]# influxd restore -portable -db mytest -newdb mytest1 /root/backup/mytest
 > 2020/02/27 15:40:25 Restoring shard 8 live from backup 20200227T073613Z.s8.tar.gz
 > [root@influx backup]# influx
 > Connected to http://localhost:8086 version 1.7.10
@@ -172,36 +175,17 @@ mytest1
 > select * into mytest..:measurement from /.*/ group by *
 > ERR: retention policy not found: autogen
 
-由于原数据中保存策略被误删除，导致无法使用加载数据
+由于原数据中保存策略被误删除，导致无法使用加载数据，处理方式：
+a.根据恢复出来的新库，创建一个保留策略
+b.再将临时数据库数据加载到原库即可
 
-
-
-> 2020/02/27 15:44:32 Restoring shard 8 live from backup 20200227T073613Z.s8.tar.gz
-> [root@influx backup]# influx
-> Connected to http://localhost:8086 version 1.7.10
-> InfluxDB shell version: 1.7.10
-> use mytest2
-> Using database mytest2
-> show measurements
-> name: measurements
-> name
-----
-info
-test2
-test3
 > use mytest
 > Using database mytest
-> select * into mytest..:measurement from /.*/ group by *
-> ERR: retention policy not found: autogen
-> create retention policy "autogen" on "mytest" duration 3w replication 1 default
-> select * into mytest..:measurement from /.*/ group by *
-> name: result
-> time written
----- -------
-0    0
-> use mytest
-> Using database mytest
-> show measurements
+
+> create retention policy "autogen" on "mytest" duration 7d replication 1 default
+
+保留策略创建待研究？
+
 > use mytest2
 > Using database mytest2
 > select * into mytest..:measurement from /.*/ group by *
@@ -209,6 +193,10 @@ test3
 > time written
 ---- -------
 0    11
+
+> use mytest
+> Using database mytest
+
 > show measurements
 > name: measurements
 > name
@@ -239,10 +227,7 @@ test3
 > time                col1 col2 value value2
 > ----                ---- ---- ----- ------
 > 1582788859956575890 c_1  c_2  10    true
-> show field from test2
-> ERR: error parsing query: found FROM, expected KEY, KEYS at line 1, char 12
-> show field kyes from test2
-> ERR: error parsing query: found kyes, expected KEY, KEYS at line 1, char 12
+
 > show field keys from test2
 > name: test2
 > fieldKey fieldType
@@ -255,20 +240,17 @@ value2   boolean
 -------- ---------
 value    float
 value2   boolean
-> show retention policies on "mytest"
-> name    duration shardGroupDuration replicaN default
-> ----    -------- ------------------ -------- -------
-> autogen 504h0m0s 24h0m0s            1        true
-> select * into mytest.autogen.:measurement from /mytest2.autogen_bak.*/ group by *
-> name: result
-> time written
----- -------
-0    0
-> show retention policies on "mytest"
-> name    duration shardGroupDuration replicaN default
-> ----    -------- ------------------ -------- -------
 
 ```
+--查询区分大小写
+查询：
+tag key 使用双引号或者不用
+tag values 使用单引号
+field 使用单引号
+
+插入：
+insert 使用双引号
+
 ```shell
 login as: root
 root@172.10.1.5's password:
